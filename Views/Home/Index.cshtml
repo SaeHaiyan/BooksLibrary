@@ -1,0 +1,226 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    body {
+        background-color: #674636;
+        color: #F7EED3;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Hero Image container with increased top margin */
+    .hero-image-container {
+        position: relative;
+        height: 80vh;
+        background: url('https://miro.medium.com/v2/resize:fit:1200/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg') no-repeat center center/cover;
+        margin-top: 6rem; /* Increased margin-top for more space above the hero section */
+    }
+
+        /* Add a dark overlay to the hero image */
+        .hero-image-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Darken effect */
+            z-index: 1; /* Place the overlay behind the text and button */
+        }
+
+    /* Hero text and button styling */
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translateY(-50%);
+        text-align: left;
+        max-width: 50%;
+        color: #F7EED3; /* Ensure text color is light */
+        z-index: 2; /* Ensure content is above the overlay */
+    }
+
+        /* Hero text and button styling */
+        .hero-content .btn {
+            color: black !important; /* Set button text color to black */
+            background-color: #AAB396; /* Button background color */
+            border: 2px solid #AAB396; /* Button border color */
+            padding: 8px 16px; /* Reduced padding to make the button shorter */
+            font-weight: bold;
+            text-transform: uppercase; /* Uppercase for the text */
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+            .hero-content .btn:hover {
+                background-color: #AAB396; /* Button hover background color */
+                color: #674636; /* Button hover text color */
+                border-color: #AAB396; /* Border color on hover */
+                transform: scale(1.1); /* Increase button size by 10% */
+            }
+
+
+    .carousel-caption {
+        position: absolute;
+        top: 60%;
+        left: 10%;
+        transform: translateY(-50%);
+        color: #F7EED3; /* White text color for captions */
+    }
+
+    /* Carousel styling */
+    .carousel-item img {
+        filter: brightness(0.5); /* Darken images in carousel */
+        object-fit: cover; /* Make sure images fit within their container */
+        height: 500px; /* Set a consistent height for all images */
+    }
+
+    .carousel-caption h5 {
+        font-size: 2.5rem; /* Increase title size */
+    }
+
+    .carousel-caption p {
+        font-size: 1.2rem; /* Increase paragraph size */
+    }
+
+    /* Remove color change on hover for carousel arrows */
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-color: rgba(255, 255, 255, 0.5); /* Set a default arrow color */
+    }
+
+    .carousel-control-prev:hover, .carousel-control-next:hover {
+        background-color: transparent; /* Remove hover effect on arrows */
+    }
+
+    /* Review Card Styles */
+    .card {
+        background-color: #AAB396; /* Set background color of the review card */
+        color: #674636; /* Ensure text color contrasts well with background */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    }
+
+    .card-body {
+        color: #674636; /* Adjust text color inside the card */
+    }
+
+    .card-title {
+        color: #674636; /* Adjust title color */
+    }
+
+    .card-text {
+        color: #674636; /* Adjust card text color */
+    }
+
+    /* Hover effect */
+    .card:hover {
+        transform: translateY(-10px); /* Slight lift effect */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    }
+
+    /* Montserrat font for headings and customer names */
+    h2, .card-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+    }
+
+    /* Font for the "What Our Customers Say" section */
+    h2 {
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+</style>
+
+<div style="min-height: 100vh; padding-bottom: 2rem;">
+    <!-- Section 1: Hero Image -->
+    <section class="hero-image-container">
+        <div class="hero-content">
+            <h1 class="display-3">Welcome to DBLS</h1>
+            <p class="lead">Your ultimate book library for endless inspiration.</p>
+            <a class="nav-link btn btn-light" asp-area="" asp-controller="Books" asp-action="Index">Book List</a> <!-- Button aligned to left side -->
+        </div>
+    </section>
+
+    <!-- Section 2: Image Carousel -->
+    <section class="container my-5">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- First Slide -->
+                <div class="carousel-item active">
+                    <img src="https://t4.ftcdn.net/jpg/05/44/54/69/360_F_544546950_Xi80k2ppry7rqKQQYsSNVmuaAILUiki9.jpg" class="d-block w-100 carousel-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Our Book Collection</h5>
+                        <p>A system where users can add books they have read and act like a checklist.</p>
+                    </div>
+                </div>
+                <!-- Second Slide -->
+                <div class="carousel-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv3zfOFXERPk9ILYc4p5ak4CT1Piu7V-vG9A&s" class="d-block w-100 carousel-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Explore New Books</h5>
+                        <p>Find and track the books you’ve already read!</p>
+                    </div>
+                </div>
+                <!-- Third Slide -->
+                <div class="carousel-item">
+                    <img src="https://thebookerprizes.com/sites/default/files/styles/12_6_media_small/public/2023-09/GettyImages-1390798814.jpg?h=0f268a8d&itok=vSE4csng" class="d-block w-100 carousel-img" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Join the Community</h5>
+                        <p>Connect with fellow readers and share your reading journey.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Section 3: Customer Reviews -->
+    <section class="container my-5">
+        <h2 class="text-center mb-4">What Our Customers Say</h2>
+        <div class="row">
+            <!-- Review Card 1 -->
+            <div class="col-md-4">
+                <div class="card text-dark mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">John Doe</h5>
+                        <p class="card-text">"The best library experience I've ever had. Highly recommended!"</p>
+                        <div>
+                            <span style="color: gold;">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Review Card 2 -->
+            <div class="col-md-4">
+                <div class="card text-dark mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Jane Smith</h5>
+                        <p class="card-text">"Amazing variety of books and excellent service."</p>
+                        <div>
+                            <span style="color: gold;">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Review Card 3 -->
+            <div class="col-md-4">
+                <div class="card text-dark mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Emily Brown</h5>
+                        <p class="card-text">"DBLS has everything a book lover could ask for."</p>
+                        <div>
+                            <span style="color: gold;">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

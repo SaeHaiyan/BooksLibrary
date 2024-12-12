@@ -1,0 +1,162 @@
+﻿@model Book
+@{
+}
+
+<div class="container">
+    <div class="col-md-8 mx-auto rounded p-4" style="background-color: #f7eed3; margin-top: 50px;">
+        <h2 class="text-center mb-5">Edit Book Details</h2>
+
+        <form method="post" enctype="multipart/form-data" style="margin-top: -30px;">
+            <!-- Added margin-top to the form -->
+
+            <div class="row mb-3">
+                <label class="col col-firm-label">Title</label>
+                <div class="col-sm-12 col-md-8">
+                    <input class="form-control" asp-for="Title" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col col-firm-label">Author</label>
+                <div class="col-sm-12 col-md-8">
+                    <input class="form-control" asp-for="Author" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col col-firm-label">Genre</label>
+                <div class="col-sm-12 col-md-8">
+                    <select class="form-control" asp-for="Genre">
+                        <option value="Other">Other</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Non-Fiction">Non-Fiction</option>
+                        <option value="Sci-Fiction">Sci-Fiction</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Adventure">Adventure</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col col-firm-label">Description</label>
+                <div class="col-sm-12 col-md-8">
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" asp-controller="Books" asp-action="Index" role="button">Back</a>
+                </div>
+                <div class="col d-grid">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Styling for Edit Book Page */
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #674636;
+        color: #f7eed3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        color: #674636;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #674636;
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+        .form-control:focus {
+            box-shadow: 0 0 5px rgba(104, 71, 54, 0.6);
+            border-color: #AAB396;
+        }
+
+    .btn-outline-primary {
+        color: #674636;
+        border: 1px solid #674636;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #674636;
+            color: #f7eed3;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+    .btn-primary {
+        background-color: #AAB396;
+        border: none;
+        color: #674636;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #674636;
+            color: #f7eed3;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .col-firm-label {
+        color: #674636;
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.9rem;
+    }
+
+    /* Responsive Styles */
+
+    .col-sm-12{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .col-md-8 {
+        max-width: 100%;
+    }
+
+    .btn-outline-primary, .btn-primary {
+        width: 100%;
+    }
+
+</style>

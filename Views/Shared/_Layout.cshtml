@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DBLS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Fixed Navbar */
+        .navbar {
+            background-color: black;
+            padding: 0.5rem 2rem; /* Add space around navbar */
+        }
+
+            .navbar.fixed-top {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999; /* Ensure the navbar stays on top */
+            }
+
+        .navbar-brand {
+            color: #AAB396 !important;
+            font-weight: bold; /* Make DBLS bold */
+            margin-right: 2rem; /* Add space after "DBLS" */
+        }
+
+        .nav-link, .dropdown-toggle {
+            color: #AAB396 !important;
+            margin: 0 1rem; /* Add space between links */
+            transition: color 0.3s ease;
+        }
+
+        .navbar-toggler-icon {
+            background-color: #AAB396;
+        }
+
+        .nav-link:hover, .dropdown-toggle:hover {
+            color: white !important;
+        }
+
+        .dropdown-menu {
+            background-color: black;
+            border: none;
+        }
+
+        .dropdown-item {
+            color: #AAB396 !important;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+            .dropdown-item:hover {
+                color: black !important;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+        footer {
+            background-color: black;
+            color: #AAB396;
+            padding: 1rem 0;
+        }
+
+            footer a {
+                color: #AAB396 !important; /* Default link color */
+                text-decoration: none;
+                margin: 0 0.5rem;
+                transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color change */
+            }
+
+                footer a:hover {
+                    color: white !important; /* Change color on hover */
+                    transform: scale(1.1); /* Add a slight zoom-in effect */
+                }
+
+
+            footer .separator {
+                color: #AAB396;
+                margin: 0 0.5rem;
+            }
+
+        .social-media a {
+            margin-right: 0.5rem;
+            color: #AAB396;
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+        }
+
+            .social-media a:hover {
+                color: white; /* Change hover color */
+                transform: scale(1.2); /* Add zoom-in effect on hover */
+            }
+
+        button {
+            background-color: black;
+            color: #AAB396;
+            border: 1px solid #AAB396;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #F7EED3;
+                color: black;
+            }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark mb-3 fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DBLS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Index">Book List</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Account
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <partial name="_LoginPartial" />
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <div class="mb-3">
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="#" class="terms">Terms & Conditions</a>
+                <span class="separator">|</span>
+                <a href="#" class="help-centre">Help Centre</a>
+            </div>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="mt-2">
+                &copy; 2024 - DBLS
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

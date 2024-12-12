@@ -1,0 +1,154 @@
+﻿@model Book
+@{
+}
+
+<div class="container">
+    <h2 class="text-center mb-5">New Book</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 rounded book-card p-4">
+            <form method="post" enctype="multipart/form-data">
+                <!-- Title Input -->
+                <div class="row mb-3">
+                    <label class="col col-firm-label">Title</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" asp-for="Title" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Author Input -->
+                <div class="row mb-3">
+                    <label class="col col-firm-label">Author</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" asp-for="Author" />
+                        <span asp-validation-for="Author" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Genre Dropdown -->
+                <div class="row mb-3">
+                    <label class="col col-firm-label">Genre</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" asp-for="Genre">
+                            <option value="Other">Other</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-Fiction">Non-Fiction</option>
+                            <option value="Sci-Fiction">Sci-Fiction</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Adventure">Adventure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Description Input -->
+                <div class="row mb-3">
+                    <label class="col col-firm-label">Description</label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control" asp-for="Description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <!-- Back and Submit Buttons -->
+                <div class="row">
+                    <div class="offset-sm-4 col-sm-4 d-grid">
+                        <a class="btn btn-outline-primary" asp-controller="Books" asp-action="Index" role="button">Back</a>
+                    </div>
+                    <div class="col d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Add some custom styles to match the previous page -->
+<style>
+    /* Full Height Body */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #674636;
+        color: #f7eed3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;  /* Vertically center the content */
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-grow: 1;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #f7eed3;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 50px;  /* Added space above the heading */
+        margin-bottom: 40px;
+    }
+
+    .book-card {
+        background-color: #f7eed3;
+        color: #674636;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .btn-primary {
+        background-color: #AAB396;
+        border: none;
+        color: #674636;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #f7eed3;
+        color: #674636;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-outline-primary {
+        color: #674636;
+        border: 1px solid #674636;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #674636;
+        color: #f7eed3;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #674636;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 5px rgba(104, 71, 54, 0.6);
+        border-color: #AAB396;
+    }
+
+    .text-danger {
+        font-size: 0.9rem;
+    }
+</style>

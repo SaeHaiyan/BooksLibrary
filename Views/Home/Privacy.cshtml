@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #674636;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-title {
+            font-weight: bold;
+            font-size: 2.5rem;
+            color: #AAB396;
+            margin-top: 40px;
+        }
+
+        /* Card Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border: none;
+            background-color: #AAB396;
+            color: #674636;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #674636;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-body p,
+        .card-body ul {
+            font-size: 1rem;
+            color: #674636;
+        }
+
+        /* Call-to-action Card */
+        .call-to-action {
+            background-color: #f7eed3 !important;
+            color: #674636 !important;
+
+        }
+
+            .call-to-action h2 {
+                color: #674636 !important;
+                font-size: 2rem;
+            }
+
+            .call-to-action p {
+                color: #674636;
+            }
+
+            .call-to-action .btn {
+                background-color: #AAB396;
+                color: #674636;
+                border-radius: 8px;
+                font-weight: bold;
+                padding: 12px 30px;
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+            }
+
+                .call-to-action .btn:hover {
+                    background-color: #f7eed3;
+                    color: #674636;
+                    transform: translateY(-3px);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                }
+
+        /* List Customization */
+        .custom-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+            .custom-list li {
+                margin-bottom: 0.8rem;
+                font-size: 1rem;
+            }
+
+                .custom-list li::before {
+                    content: '•';
+                    color: #AAB396;
+                    font-weight: bold;
+                    display: inline-block;
+                    width: 1rem;
+                    margin-left: -1rem;
+                }
+
+        /* Font Awesome Icons */
+        .fas {
+            color: #AAB396;
+            font-size: 1.5rem;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background-color: #AAB396;
+            border: none;
+            color: #674636;
+            padding: 10px 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #674636;
+                color: #f7eed3;
+                transform: translateY(-3px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+    </style>
+</head>
+<body>
+
+    <h1 class="about-title text-center mb-4">About Us</h1>
+
+    <div class="container">
+        <!-- Section: Mission -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title"><i class="fas fa-bullseye"></i> Our Mission</h2>
+                <p>At <strong>DBLS</strong>, we aim to create a simple yet powerful platform for book enthusiasts. We believe that every book you read is a milestone worth celebrating. Our system allows you to track your reading journey by adding the books you've read, creating a personal library of knowledge and inspiration.</p>
+            </div>
+        </div>
+
+        <!-- Section: How It Works -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title"><i class="fas fa-book"></i> How It Works</h2>
+                <p>Finished a book? Great! Just log in to DBLS and add the book information to your personal collection. Include the title, author, genre, your personal rating, and even a brief review. With our intuitive and user-friendly interface, you can easily organize and manage your reading list.</p>
+            </div>
+        </div>
+
+        <!-- Section: Why Use DBLS -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title"><i class="fas fa-star"></i> Why Use DBLS?</h2>
+                <ul class="custom-list">
+                    <li><strong>📚 Track Your Reading Progress:</strong> See the books you've read and keep a record of your literary journey.</li>
+                    <li><strong>🗂️ Stay Organized:</strong> No more forgetting the title of that amazing book you read last year — it's all in your digital library.</li>
+                    <li><strong>🔍 Discover New Reads:</strong> Get inspired by your past reads and find new books to explore next.</li>
+                    <li><strong>✍️ Share Your Experience:</strong> Write personal reviews and reflections on your completed books.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section: Join Our Community -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title"><i class="fas fa-users"></i> Join Our Community</h2>
+                <p>At <strong>DBLS</strong>, we believe that every book tells a story, and every reader has their own unique experience. By using DBLS, you become part of a community of like-minded book lovers. Together, we share the love of reading, one book at a time.</p>
+            </div>
+        </div>
+
+        <!-- Section: Call to Action -->
+        <div class="card call-to-action">
+            <div class="card-body text-center">
+                <h2><i class="fas fa-rocket"></i> Start Building Your Library Today</h2>
+                <p>Whether you're an avid reader or just getting started, DBLS makes it easy to track, organize, and celebrate your reading journey. Every book you add becomes a part of your story. So, what are you waiting for? Add your first book today and see how far your reading journey can go!</p>
+                <a class="btn btn-primary btn-lg" asp-area="" asp-controller="Books" asp-action="Index">Start Adding Books</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+</body>
+</html>

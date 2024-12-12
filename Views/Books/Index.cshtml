@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #674636;
+            color: #f7eed3;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #f7eed3;
+            margin-top: 60px; /* Increased space above the header */
+            margin-bottom: 40px;
+            font-weight: bold; /* Make the header text bold */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background-color: #AAB396;
+            border: none;
+            color: #674636;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #f7eed3;
+                color: #674636;
+                transform: translateY(-3px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        .btn-danger {
+            background-color: #e63946;
+            border: none;
+            color: #f7eed3;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+            .btn-danger:hover {
+                background-color: #f7eed3;
+                color: #e63946;
+                transform: translateY(-3px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        /* Equal Sized Cards */
+        .book-card {
+            background-color: #f7eed3;
+            color: #674636;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 400px;
+        }
+
+            .book-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            }
+
+        .book-card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .book-info {
+            margin-bottom: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+            .book-info span {
+                display: inline-block;
+                background-color: #AAB396;
+                color: #674636;
+                border-radius: 20px;
+                padding: 5px 15px;
+                font-size: 0.9rem;
+            }
+
+        .book-description {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-top: 10px;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
+
+        .book-actions {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #AAB396;
+        }
+
+            .book-actions a {
+                text-decoration: none;
+            }
+
+        /* Search Bar and Sort Styling */
+        .search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #674636;
+            width: 300px;
+        }
+
+        .sort-select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #674636;
+            background-color: #f7eed3;
+            color: #674636;
+        }
+
+        /* Responsive Design */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .col {
+            flex: 1 1 300px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>List Of Books</h2>
+
+    <div class="container">
+        <!-- Search Bar and Sort Dropdown -->
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search for books...">
+            <select class="sort-select" id="sortSelect">
+                <option value="genre">Sort by Genre</option>
+                <option value="date">Sort by Date Added</option>
+            </select>
+            <a class="btn btn-primary" asp-controller="Books" asp-action="Create">+ New Book</a>
+        </div>
+
+        <div class="row" id="bookList">
+            @foreach (var book in Model)
+            {
+                <div class="col book-card" data-title="@book.Title" data-genre="@book.Genre" data-date="@book.AddedAt.ToString("yyyy-MM-dd")">
+                    <div class="book-card-body">
+                        <h3 class="book-title">@book.Title</h3>
+
+                        <div class="book-info">
+                            <span><i class="fas fa-user"></i> @book.Author</span>
+                            <span><i class="fas fa-bookmark"></i> @book.Genre</span>
+                            <span><i class="fas fa-calendar"></i> @book.AddedAt.ToString("dd/MM/yyyy")</span>
+                        </div>
+
+                        <p class="book-description">@book.Description</p>
+                    </div>
+
+                    <div class="book-actions">
+                        <a class="btn btn-primary" asp-controller="Books" asp-action="Edit" asp-route-id="@book.Id">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <a class="btn btn-danger" asp-controller="Books" asp-action="Delete" asp-route-id="@book.Id">
+                            <i class="fas fa-trash"></i> Delete
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+    <script>
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const bookList = document.getElementById('bookList');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const books = bookList.querySelectorAll('.book-card');
+
+            books.forEach(function(book) {
+                const title = book.getAttribute('data-title').toLowerCase();
+                const description = book.querySelector('.book-description').textContent.toLowerCase();
+                const genre = book.getAttribute('data-genre').toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm) || genre.includes(searchTerm)) {
+                    book.style.display = 'block';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        });
+
+        // Sort Functionality
+        const sortSelect = document.getElementById('sortSelect');
+
+        sortSelect.addEventListener('change', function() {
+            const sortBy = sortSelect.value;
+            const books = Array.from(bookList.querySelectorAll('.book-card'));
+
+            if (sortBy === 'genre') {
+                books.sort((a, b) => a.getAttribute('data-genre').localeCompare(b.getAttribute('data-genre')));
+            } else if (sortBy === 'date') {
+                books.sort((a, b) => new Date(a.getAttribute('data-date')) - new Date(b.getAttribute('data-date')));
+            }
+
+            books.forEach(book => bookList.appendChild(book)); // Re-append sorted books
+        });
+    </script>
+</body>
+</html>
